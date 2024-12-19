@@ -97,16 +97,14 @@ PrepareFuelingRequest body = new PrepareFuelingRequest.Builder(
     "9955",
     "1",
     "PARTNER_APP_EXAMPLE",
-    Arrays.asList(
-        new PaymentDetailsItems.Builder(
-            "euroShell",
-            new PaymentProperties.Builder(
-                "98e4ffd3-4146-4e94-8445-e02f4ce87a77"
-            )
-            .build()
+    new PaymentDetails.Builder(
+        "euroShell",
+        new PaymentProperties.Builder(
+            "98e4ffd3-4146-4e94-8445-e02f4ce87a77"
         )
         .build()
     )
+    .build()
 )
 .loyaltyDetails(Arrays.asList(
         new LoyaltyDetails.Builder(

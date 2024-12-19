@@ -11,7 +11,7 @@ An error response.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `Fault` | [`FaultResponseFault`](../../doc/models/fault-response-fault.md) | Optional | - | FaultResponseFault getFault() | setFault(FaultResponseFault fault) |
+| `Fault` | [`Fault`](../../doc/models/fault.md) | Optional | - | Fault getFault() | setFault(Fault fault) |
 
 ## Example (as JSON)
 

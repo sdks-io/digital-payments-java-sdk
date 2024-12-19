@@ -19,8 +19,8 @@
 | `SiteAddress` | `String` | Optional | - | String getSiteAddress() | setSiteAddress(String siteAddress) |
 | `OriginalPrice` | `Double` | Optional | - | Double getOriginalPrice() | setOriginalPrice(Double originalPrice) |
 | `Discount` | `Double` | Optional | - | Double getDiscount() | setDiscount(Double discount) |
-| `Payment` | [`FinaliseFuelingRequestPayment`](../../doc/models/finalise-fueling-request-payment.md) | Optional | - | FinaliseFuelingRequestPayment getPayment() | setPayment(FinaliseFuelingRequestPayment payment) |
-| `Products` | [`List<FinaliseFuelingRequestProductsItems>`](../../doc/models/finalise-fueling-request-products-items.md) | Optional | - | List<FinaliseFuelingRequestProductsItems> getProducts() | setProducts(List<FinaliseFuelingRequestProductsItems> products) |
+| `Payment` | [`Payment`](../../doc/models/payment.md) | Optional | - | Payment getPayment() | setPayment(Payment payment) |
+| `Products` | [`List<Product>`](../../doc/models/product.md) | Optional | - | List<Product> getProducts() | setProducts(List<Product> products) |
 | `MppTransactionId` | `String` | Optional | - | String getMppTransactionId() | setMppTransactionId(String mppTransactionId) |
 
 ## Example (as JSON)

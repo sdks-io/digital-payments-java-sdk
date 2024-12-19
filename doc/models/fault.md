@@ -1,16 +1,16 @@
 
-# Fault Response Fault
+# Fault
 
 ## Structure
 
-`FaultResponseFault`
+`Fault`
 
 ## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `Faultstring` | `String` | Optional | The description of the error. | String getFaultstring() | setFaultstring(String faultstring) |
-| `Detail` | [`FaultResponseFaultDetail`](../../doc/models/fault-response-fault-detail.md) | Optional | - | FaultResponseFaultDetail getDetail() | setDetail(FaultResponseFaultDetail detail) |
+| `Detail` | [`Detail`](../../doc/models/detail.md) | Optional | - | Detail getDetail() | setDetail(Detail detail) |
 
 ## Example (as JSON)
 

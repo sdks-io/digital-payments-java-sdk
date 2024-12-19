@@ -17,8 +17,8 @@
 | `LoyaltyDetails` | [`List<LoyaltyDetails>`](../../doc/models/loyalty-details.md) | Optional | Object containing Loyalty details | List<LoyaltyDetails> getLoyaltyDetails() | setLoyaltyDetails(List<LoyaltyDetails> loyaltyDetails) |
 | `SourceApplication` | `String` | Required | The ID of the source application making this call. Each 3rd Party will be issued with its own sourceApp ID that must be specified correctly here<br><br>* 3rdParty_App_Archetype | String getSourceApplication() | setSourceApplication(String sourceApplication) |
 | `DeviceType` | `String` | Optional | The type of device making this call. Permitted values for deviceType:<br><br>* car<br>* phone | String getDeviceType() | setDeviceType(String deviceType) |
-| `PaymentDetails` | [`List<PaymentDetailsItems>`](../../doc/models/payment-details-items.md) | Required | Object containing Payment details | List<PaymentDetailsItems> getPaymentDetails() | setPaymentDetails(List<PaymentDetailsItems> paymentDetails) |
-| `DeviceDetails` | [`List<PrepareFuelingRequestDeviceDetailsItems>`](../../doc/models/prepare-fueling-request-device-details-items.md) | Optional | Object containing device details | List<PrepareFuelingRequestDeviceDetailsItems> getDeviceDetails() | setDeviceDetails(List<PrepareFuelingRequestDeviceDetailsItems> deviceDetails) |
+| `PaymentDetails` | [`PaymentDetails`](../../doc/models/payment-details.md) | Required | Object containing Payment details | PaymentDetails getPaymentDetails() | setPaymentDetails(PaymentDetails paymentDetails) |
+| `DeviceDetails` | [`List<DeviceDetail>`](../../doc/models/device-detail.md) | Optional | Object containing device details | List<DeviceDetail> getDeviceDetails() | setDeviceDetails(List<DeviceDetail> deviceDetails) |
 
 ## Example (as JSON)
 
@@ -35,20 +35,18 @@
       "loyaltyType": "Shell"
     }
   ],
-  "paymentDetails": [
-    {
-      "paymentMethodId": "euroShell",
-      "paymentProperties": {
-        "cardIdentifier": "98e4ffd3-4146-4e94-8445-e02f4ce87a77",
-        "paymentType": "paymentType8",
-        "clientMetadataId": "clientMetadataId2",
-        "token": "token8",
-        "identifier": "identifier4",
-        "network": "network4"
-      },
-      "paymentCategory": "paymentCategory6"
-    }
-  ],
+  "paymentDetails": {
+    "paymentMethodId": "euroShell",
+    "paymentProperties": {
+      "cardIdentifier": "98e4ffd3-4146-4e94-8445-e02f4ce87a77",
+      "paymentType": "paymentType8",
+      "clientMetadataId": "clientMetadataId2",
+      "token": "token8",
+      "identifier": "identifier4",
+      "network": "network4"
+    },
+    "paymentCategory": "paymentCategory6"
+  },
   "maximumFuelingAmount": 52.08,
   "deviceType": "deviceType6",
   "deviceDetails": [
