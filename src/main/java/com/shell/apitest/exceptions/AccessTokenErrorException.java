@@ -63,4 +63,14 @@ public class AccessTokenErrorException extends ApiException {
     private void setError(String error) {
         this.error = error;
     }
+
+    /**
+     * Converts this AccessTokenErrorException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "AccessTokenErrorException [" + "statusCode=" + getResponseCode() + ", message="
+                + getMessage() + ", errorCode=" + errorCode + ", error=" + error + "]";
+    }
 }

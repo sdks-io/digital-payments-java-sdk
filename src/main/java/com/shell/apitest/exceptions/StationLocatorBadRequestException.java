@@ -63,4 +63,15 @@ public class StationLocatorBadRequestException extends ApiException {
     private void setErrorDescription(String errorDescription) {
         this.errorDescription = errorDescription;
     }
+
+    /**
+     * Converts this StationLocatorBadRequestException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "StationLocatorBadRequestException [" + "statusCode=" + getResponseCode()
+                + ", message=" + getMessage() + ", errorCode=" + errorCode + ", errorDescription="
+                + errorDescription + "]";
+    }
 }

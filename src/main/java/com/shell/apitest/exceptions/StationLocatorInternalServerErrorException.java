@@ -63,4 +63,15 @@ public class StationLocatorInternalServerErrorException extends ApiException {
     private void setErrorDescription(String errorDescription) {
         this.errorDescription = errorDescription;
     }
+
+    /**
+     * Converts this StationLocatorInternalServerErrorException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "StationLocatorInternalServerErrorException [" + "statusCode=" + getResponseCode()
+                + ", message=" + getMessage() + ", errorCode=" + errorCode + ", errorDescription="
+                + errorDescription + "]";
+    }
 }

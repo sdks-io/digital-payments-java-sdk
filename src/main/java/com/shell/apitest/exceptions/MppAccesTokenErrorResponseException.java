@@ -88,4 +88,15 @@ public class MppAccesTokenErrorResponseException extends ApiException {
     private void setErrorDescription(String errorDescription) {
         this.errorDescription = errorDescription;
     }
+
+    /**
+     * Converts this MppAccesTokenErrorResponseException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "MppAccesTokenErrorResponseException [" + "statusCode=" + getResponseCode()
+                + ", message=" + getMessage() + ", error=" + error + ", errorCode=" + errorCode
+                + ", errorDescription=" + errorDescription + "]";
+    }
 }

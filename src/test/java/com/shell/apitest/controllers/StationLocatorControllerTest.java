@@ -13,6 +13,7 @@ import static org.junit.Assert.assertTrue;
 import com.shell.apitest.ApiHelper;
 import com.shell.apitest.ShellSmartPayAPIClient;
 import com.shell.apitest.exceptions.ApiException;
+import com.shell.apitest.models.TypeEnum;
 import io.apimatic.core.utilities.TestHelper;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -70,10 +71,11 @@ public class StationLocatorControllerTest extends BaseControllerTest {
         Integer n = null;
         List<String> amenities = null;
         List<String> countries = null;
+        TypeEnum type = null;
 
         // Set callback and perform API call
         try {
-            controller.stationlocatorV1StationsGetAroundLocation(m, lon, lat, radius, offerCode, n, amenities, countries);
+            controller.stationlocatorV1StationsGetAroundLocation(m, lon, lat, radius, offerCode, n, amenities, countries, type);
         } catch (ApiException e) {
             // Empty block
         }

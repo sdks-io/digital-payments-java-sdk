@@ -63,4 +63,14 @@ public class PaymentEnablementErrorResponseException extends ApiException {
     private void setMessageField(String messageField) {
         this.message = messageField;
     }
+
+    /**
+     * Converts this PaymentEnablementErrorResponseException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "PaymentEnablementErrorResponseException [" + "statusCode=" + getResponseCode()
+                + ", message=" + getMessage() + ", code=" + code + ", message=" + message + "]";
+    }
 }

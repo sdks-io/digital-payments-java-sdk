@@ -63,4 +63,15 @@ public class StationLocatorUnauthorizedException extends ApiException {
     private void setErrorDescription(String errorDescription) {
         this.errorDescription = errorDescription;
     }
+
+    /**
+     * Converts this StationLocatorUnauthorizedException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "StationLocatorUnauthorizedException [" + "statusCode=" + getResponseCode()
+                + ", message=" + getMessage() + ", errorCode=" + errorCode + ", errorDescription="
+                + errorDescription + "]";
+    }
 }

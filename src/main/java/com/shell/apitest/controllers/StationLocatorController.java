@@ -16,6 +16,7 @@ import com.shell.apitest.exceptions.StationLocatorNotFoundException;
 import com.shell.apitest.exceptions.StationLocatorUnauthorizedException;
 import com.shell.apitest.http.request.HttpMethod;
 import com.shell.apitest.models.AroundLocationArray;
+import com.shell.apitest.models.TypeEnum;
 import io.apimatic.core.ApiCall;
 import io.apimatic.core.ErrorCase;
 import io.apimatic.core.GlobalConfiguration;
@@ -57,6 +58,14 @@ public final class StationLocatorController extends BaseController {
      *         returned).
      * @param  countries  Optional parameter: This enables requestor to filter locations based on
      *         one or more Countries (i.e. by country codes).
+     * @param  type  Optional parameter: All fuel stations are of at least one Type, indicating
+     *         whether it is Shell-branded or not, and if the station can be used by trucks. Note
+     *         that a station can have more than one Type (e.g. Shell retail sites (Type=0) can also
+     *         be truck friendly (Type=2)). Type values are as follows: * 0 = Shell owned/branded
+     *         stations that are not also Type=2 or Type=3 * 1 = Partner stations accepting Shell
+     *         Card * 2 = Shell owned/branded stations that are truck friendly but not Type=3 * 3 =
+     *         Shell owned/branded stations that are truck only &lt;br/&gt;**When type is not
+     *         provided, API will return type 0 and 2 only.**
      * @return    Returns the AroundLocationArray response from the API call
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
@@ -69,9 +78,10 @@ public final class StationLocatorController extends BaseController {
             final String offerCode,
             final Integer n,
             final List<String> amenities,
-            final List<String> countries) throws ApiException, IOException {
+            final List<String> countries,
+            final TypeEnum type) throws ApiException, IOException {
         return prepareStationlocatorV1StationsGetAroundLocationRequest(m, lon, lat, radius,
-                offerCode, n, amenities, countries).execute();
+                offerCode, n, amenities, countries, type).execute();
     }
 
     /**
@@ -94,6 +104,14 @@ public final class StationLocatorController extends BaseController {
      *         returned).
      * @param  countries  Optional parameter: This enables requestor to filter locations based on
      *         one or more Countries (i.e. by country codes).
+     * @param  type  Optional parameter: All fuel stations are of at least one Type, indicating
+     *         whether it is Shell-branded or not, and if the station can be used by trucks. Note
+     *         that a station can have more than one Type (e.g. Shell retail sites (Type=0) can also
+     *         be truck friendly (Type=2)). Type values are as follows: * 0 = Shell owned/branded
+     *         stations that are not also Type=2 or Type=3 * 1 = Partner stations accepting Shell
+     *         Card * 2 = Shell owned/branded stations that are truck friendly but not Type=3 * 3 =
+     *         Shell owned/branded stations that are truck only &lt;br/&gt;**When type is not
+     *         provided, API will return type 0 and 2 only.**
      * @return    Returns the AroundLocationArray response from the API call
      */
     public CompletableFuture<AroundLocationArray> stationlocatorV1StationsGetAroundLocationAsync(
@@ -104,10 +122,11 @@ public final class StationLocatorController extends BaseController {
             final String offerCode,
             final Integer n,
             final List<String> amenities,
-            final List<String> countries) {
+            final List<String> countries,
+            final TypeEnum type) {
         try { 
             return prepareStationlocatorV1StationsGetAroundLocationRequest(m, lon, lat, radius, offerCode,
-            n, amenities, countries).executeAsync(); 
+            n, amenities, countries, type).executeAsync(); 
         } catch (Exception e) {  
             throw new CompletionException(e); 
         }
@@ -124,7 +143,8 @@ public final class StationLocatorController extends BaseController {
             final String offerCode,
             final Integer n,
             final List<String> amenities,
-            final List<String> countries) throws IOException {
+            final List<String> countries,
+            final TypeEnum type) throws IOException {
         return new ApiCall.Builder<AroundLocationArray, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
@@ -146,6 +166,8 @@ public final class StationLocatorController extends BaseController {
                                 .value(amenities).isRequired(false))
                         .queryParam(param -> param.key("countries")
                                 .value(countries).isRequired(false))
+                        .queryParam(param -> param.key("type")
+                                .value((type != null) ? type.value() : null).isRequired(false))
                         .headerParam(param -> param.key("accept").value("application/json"))
                         .withAuth(auth -> auth
                                 .add("oAuthTokenPost"))

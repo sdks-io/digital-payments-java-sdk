@@ -90,4 +90,15 @@ public class CancelFuelingErrorResponseErrorException extends ApiException {
     private void setErrors(List<MppError> errors) {
         this.errors = errors;
     }
+
+    /**
+     * Converts this CancelFuelingErrorResponseErrorException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "CancelFuelingErrorResponseErrorException [" + "statusCode=" + getResponseCode()
+                + ", message=" + getMessage() + ", errorCode=" + errorCode + ", errorDescription="
+                + errorDescription + ", errors=" + errors + "]";
+    }
 }
